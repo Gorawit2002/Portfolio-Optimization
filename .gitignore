@@ -1,0 +1,31 @@
+# ✅ Node.js (React)
+node_modules/
+dist/
+build/
+.env
+.vite/
+
+# ✅ Python (Flask)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+*.env
+
+# ✅ OS/System files
+.DS_Store
+Thumbs.db
+
+# ✅ VSCode
+.vscode/
+
+# ✅ Logs & temp
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ✅ Market data cache
+market_data_cache/
