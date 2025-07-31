@@ -1,0 +1,1574 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgba(49, 53, 63, 1);
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  font-size: 14px;
+  overflow-x: hidden;
+  
+}
+
+/* Sidebar */
+.sidebar {
+  width: 256px;
+  background-color: rgba(27, 32, 40, 1);
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px ;
+}
+
+.sidebar .menu {
+  list-style: none;
+  padding: 0;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar .menu li {
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 16px;
+  color: rgba(158, 158, 158, 1);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, color 0.2s ease;
+}
+
+/* Active and hover states for sidebar items */
+.sidebar .menu li.active{
+background-color: #3498db; 
+color: #fff;
+transform: scale(1.05); 
+font-weight: bold;
+}
+.sidebar .menu li:hover {
+  background-color: rgba(57, 110, 247, 1);
+  color: #fff;
+  transform: scale(1.03); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar .menu li a {
+  color: inherit;
+  text-decoration: none;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  display: block;
+}
+
+.sidebar .menu li a.overview-btn:hover {
+  background-color: rgba(57, 110, 247, 1);
+
+}
+  /* Optimize button hover effect */
+.sidebar .menu li a.optimize-btn:hover {
+    background-color: rgba(57, 110, 247, 1); /* Hover background color */
+  }
+
+
+/* Main Content */
+.main-content {
+  margin-left: 256px;
+  padding: 40px;
+  
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 32px;
+  color: #fff;
+}
+
+
+/* Portfolio Table */
+.portfolio-table {
+  width: 80%;
+  margin: 0 auto;
+  background-color: rgba(27, 32, 40, 1);
+  border-radius: 15px;
+  overflow-x: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+
+
+.portfolio-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  
+}
+  
+.portfolio-table th, 
+.portfolio-table td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.portfolio-table th {
+  color: #fff;
+  font-weight: bold;
+  background-color: rgba(57, 110, 247, 1); /* สี header */
+  border-bottom: 2px solid rgba(57, 110, 247, 0.5);
+  white-space: nowrap;
+}
+
+.portfolio-table td {
+  color: #fff;
+  background-color: rgba(49, 53, 63, 1); /* สีพื้นหลังของเซลล์ */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* เพิ่มเส้นแบ่ง */
+  transition: background-color 0.3s ease;
+}
+
+.portfolio-table td:first-child {
+  text-align: left !important;
+  padding-left: 20px;
+}
+
+.portfolio-table .stock-logo-table:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+.stock-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-left: 12px;
+}
+
+.stock-logo-table {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: white;
+  padding: 2px;
+  object-fit: contain;
+}
+
+.portfolio-table tr:last-child td {
+  border-bottom: none; /* ลบเส้นแบ่งแถวสุดท้าย */
+}
+
+.portfolio-table tr:hover td {
+  background-color: rgba(57, 110, 247, 0.1);
+}
+.portfolio-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.stock-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.stock-logo-container {
+  background-color: #000000;  /* Black background */
+  border-radius: 20px;        /* Rounded corners */
+  padding: 4px 10px;         /* Padding around content */
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.stock-logo-summary {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: contain;
+  overflow: hidden;
+  background-color: white;
+  padding: 2px;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stock-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: contain;
+  overflow: hidden;
+  background-color: white;
+  padding: 2px;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stock-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.stock-name-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stock-logo.loading {
+  opacity: 0.5;
+}
+.stock-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.stock-details {
+display: flex;
+flex-direction: column;
+}
+
+.stock-details h3 {
+  font-size: 10px;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.stock-details p {
+  font-size: 12px;
+  color: rgba(158, 158, 158, 1);
+}
+
+.stock-name {
+  font-size: 12px;
+  font-weight: 500;
+  color: white;
+}
+
+.stock-symbol {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+.stock-name, .stock-symbol {
+  font-size: 12px; /* Appropriate font size for the card size */
+}
+
+.stock-weight {
+  font-size: 12px;  /* Smaller font */
+  color: #00C853;   /* Green color for positive values */
+  margin-left: auto;
+}
+
+.stock-change {
+  font-size: 18px;
+  color: #fff;
+}
+
+.loading-chart {
+  color: rgba(0, 0, 0, 0.7); /* Light white color to match your theme */
+  font-size: 14px;
+  text-align: center;
+  padding: 12px 0;
+}
+
+/* Update .stock-chart in index.css */
+.stock-chart {
+  height: 50px;
+  flex-grow: 1;
+  min-height: 40px;
+  margin: 8px 0;
+  width: 100%; /* Add this */
+  position: relative; /* Add this */
+}
+
+.stock-percent-change {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.change.positive {
+  color: green;
+}
+
+.change.negative {
+  color: red;
+}
+
+.stock-percent-change.positive {
+  color: #00C853;
+  background-color: rgba(76, 175, 80, 0.1); /* Green for positive */
+}
+
+.stock-percent-change.negative {
+  color: #FF3B30; /* Red for negative */
+  background-color: rgba(244, 67, 54, 0.1);
+}
+
+.stock-price-info {
+  text-align: right;
+}
+
+.next-button {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #1f2937;
+  color: white;
+  border-radius: 50%;
+  padding: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.next-button:hover {
+  background-color: #374151;
+}
+
+.next-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.current-price {
+  display: block;
+  font-size: 24px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 4px;
+}
+
+/* Optimize Form */
+.optimize-form {
+  background-color: rgba(27, 32, 40, 1);
+  padding: 40px;
+  border-radius: 15px;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 4px 4px 32px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.optimize-form h2 {
+  font-size: 24px;
+  color: rgba(255, 255, 255, 1);
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  display: block;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 1);
+  margin-bottom: 8px;
+}
+
+.form-group select,
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  background-color: rgba(49, 53, 63, 1);
+  border: 1px solid rgba(128, 128, 128, 1);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 1);
+}
+
+.form-group select:focus,
+.form-group input:focus {
+  outline: none;
+  border: 1px solid rgba(57, 110, 247, 1);
+}
+
+.mode-options {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.mode-options label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.mode-options input[type='checkbox'] {
+  margin-right: 10px;
+  width: 18px;
+  height: 18px;
+}
+
+.advanced-parameter {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+#advancedInputs {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid rgba(128, 128, 128, 1); /* Gray border */
+  border-radius: 8px;
+  background-color: rgba(27, 32, 40, 1); /* Match the dark theme */
+  color: #fff;
+}
+
+#advancedInputs .form-group label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+}
+
+#advancedInputs input {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  background-color: rgba(49, 53, 63, 1);
+  border: 1px solid rgba(128, 128, 128, 1); /* Gray border */
+  border: none; /* Completely remove the border */
+  outline: none; /* Remove focus outline */
+  color: #fff; /* White text */
+}
+
+#advancedInputs input:focus {
+  outline: none;
+}
+
+#advancedInputs input::placeholder {
+  color: rgba(158, 158, 158, 1);
+}
+
+input[type="checkbox"] {
+  width: 18px; /* Match size of Auto and Manual checkboxes */
+  height: 18px;
+  margin-right: 8px; /* Add spacing between checkbox and label */
+  cursor: pointer; /* Pointer cursor for better UX */
+}
+
+.advanced-parameter label {
+  font-size: 16px; /* Match font size */
+  color: #fff; /* White text */
+  display: flex;
+  align-items: center;
+}
+
+.advanced-parameter input[type="checkbox"] {
+  width: 18px; /* Set checkbox width */
+  height: 18px; /* Set checkbox height */
+  margin-right: 8px; /* Add space between checkbox and label */
+}
+.investment-horizon {
+  margin-top: 20px; /* Add space above the section */
+  margin-bottom: 20px; /* Add space below the section */
+}
+
+.investment-horizon label {
+  font-size: 16px;
+  color: #fff; /* White text for the label */
+  margin-bottom: 10px;
+  display: block;
+}
+
+.horizon-options {
+  display: flex; /* Align checkboxes horizontally */
+  gap: 30px; /* Add space between checkboxes */
+  align-items: center; /* Align checkboxes and labels vertically */
+}
+
+.horizon-options label {
+  font-size: 16px;
+  color: #fff; /* White text for checkboxes */
+  display: flex;
+  align-items: center;
+  white-space: nowrap; /* Prevent text wrapping to a new line */
+}
+
+.horizon-options input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px; /* Add space between checkbox and label */
+  cursor: pointer; /* Add pointer cursor for better user experience */
+}
+
+/* Adjust spacing between Target Volatility and Max/Min */
+.form-group + .volatility-range {
+  margin-top: 5px; /* Decrease the space between Target Volatility and Max/Min */
+}
+
+/* Shared Style for Target Volatility and Allocation */
+.volatility-range,
+.allocation-range {
+  display: flex;
+  gap: 40px; /* Space between Max and Min sections */
+  justify-content: flex-start; /* Align items to the left */
+}
+
+.volatility-range .form-group{
+  display: flex;
+  flex-direction: row; /* Align label and input horizontally */
+  align-items: center; /* Vertically align label and input */
+  gap: 47px; /* Reduce spacing between label and input */
+}
+
+.allocation-range .form-group {
+  display: flex;
+  flex-direction: row; /* Align label and input horizontally */
+  align-items: center; /* Vertically align label and input */
+  gap: 55px; /* Reduce spacing between label and input */
+}
+
+.volatility-range label,
+.allocation-range label {
+  font-size: 16px; /* Uniform font size for labels */
+  color: #fff; /* White text color for labels */
+  white-space: nowrap; /* Prevent wrapping of text */
+  margin-right: 10px; /* Reduce margin between label and input */
+  width: 80px; /* Consistent label width for alignment */
+  text-align: right; /* Align label text to the right */
+}
+
+.volatility-range input,
+.allocation-range input {
+  width: 100px; /* Set consistent input width */
+  padding: 8px; /* Adjust padding for inputs */
+  font-size: 14px;
+  background-color: rgba(49, 53, 63, 1); /* Match input background with theme */
+  border: none; /* Remove border */
+  border-radius: 4px;
+  color: #fff; /* Set input text color to white */
+}
+
+
+.rebalance-wrapper {
+  display: flex; /* Align Rebalance label and options in one row */
+  align-items: center; /* Align items vertically */
+  gap: 10px;
+  flex-wrap: nowrap; /* Ensure items are in a single row */
+  transition: transform 0.5s ease; /* Smooth transition for sliding */
+  will-change: transform; /* Optimize performance for transition */
+  overflow: hidden;  /* Space between the label and checkboxes */
+}
+
+.rebalance-options {
+  display: flex; /* Arrange checkboxes in a row */
+  gap: 20px; /* Space between options */
+  align-items: center; /* Vertically align checkbox and label */
+}
+
+.rebalance-options label {
+  display: flex; /* Align checkbox and label text together */
+  align-items: center; /* Vertically align text with checkbox */
+  font-size: 16px; /* Consistent font size */
+  color: white; /* Text color */
+  cursor: pointer; /* Pointer cursor for better UX */
+}
+
+.rebalance-options input[type="checkbox"] {
+  width: 18px; /* Checkbox size */
+  height: 18px;
+  margin-right: 8px; /* Space between checkbox and label text */
+}
+
+
+.form-group label {
+  font-size: 16px; /* Main label font size */
+  color: #fff; /* Main label text color */
+  font-weight: bold;
+}
+
+.balance-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.balance-display input {
+  width: 70%;
+  padding: 12px;
+  background-color: rgba(49, 53, 63, 1);
+  border: none;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 1);
+}
+
+.optimize-button {
+  text-align: right;
+  padding-top: 20px; /* Add space above button */
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Add separator line */
+}
+
+.optimize-button button {
+  padding: 12px 40px;
+  font-size: 16px;
+  background-color: rgba(57, 110, 247, 1);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.optimize-button button:hover {
+  background-color: rgba(35, 80, 197, 1);
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: black; /* Make text black */
+}
+
+.select2-container--default .select2-selection--single {
+  background-color: white; /* Set background color to white */
+}
+
+.select2-dropdown {
+  background-color: white; /* Ensure the dropdown background is white */
+  color: black; /* Set dropdown text color to black */
+}
+
+.select2-results__option {
+  color: black; /* Set the color of each option in the dropdown to black */
+}
+
+/* Change the hover color for options */
+.select2-results__option--highlighted[aria-selected] {
+  background-color: #ddd; /* Highlight background */
+  color: black; /* Highlighted text color */
+}
+
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust height as necessary */
+}
+
+.chart-container {
+  position: relative;
+  height: 600px;
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+canvas {
+  max-width: 600px; /* Set a maximum width for the chart */
+  max-height: 600px; /* Set a maximum height for the chart */
+}
+
+.chartjs-legend {
+  position: absolute;
+  top: 50%; 
+  right: -150px; 
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-with-percentage {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+
+.stock-dropdown {
+  width: 100%;
+  padding: 12px;
+  background-color: rgba(49, 53, 63, 1);
+  border: 1px solid rgba(128, 128, 128, 1);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 1);
+  margin-bottom: 20px;
+}
+
+.stock-dropdown:focus {
+  outline: none;
+  border-color: rgba(57, 110, 247, 1);
+}
+
+.stock-dropdown option {
+  background-color: rgba(49, 53, 63, 1);
+  color: white;
+  padding: 12px;
+}
+
+.selected-stocks {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.selected-stock-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 16px;
+  background-color: rgba(27, 32, 40, 1);
+  border-radius: 8px;
+}
+
+.stock-identity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.selected-stock-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(57, 110, 247, 0.1);
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(57, 110, 247, 0.3);
+  margin-bottom: 10px;
+}
+
+.remove-stock-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0 8px;
+  transition: color 0.3s ease;
+}
+
+.remove-stock-btn:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: white;
+  font-size: 16px;
+}
+
+.searchable-dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px;
+  background-color: rgba(49, 53, 63, 1);
+  border: 1px solid rgba(128, 128, 128, 1);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 1);
+  font-size: 14px;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: rgba(57, 110, 247, 1);
+}
+
+.search-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 300px;
+  overflow-y: auto;
+  background-color: rgba(27, 32, 40, 1);
+  border: 1px solid rgba(57, 110, 247, 0.3);
+  border-radius: 8px;
+  margin-top: 4px;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(57, 110, 247, 0.1);
+}
+
+.dropdown-item-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 12px;
+}
+
+.stock-logo-small {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: contain;
+  background-color: white;
+  padding: 2px;
+}
+
+.no-results {
+  padding: 12px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Scrollbar styling for the dropdown */
+.dropdown-menu::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dropdown-menu::-webkit-scrollbar-track {
+  background: rgba(27, 32, 40, 1);
+  border-radius: 4px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+  background: rgba(57, 110, 247, 0.5);
+  border-radius: 4px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb:hover {
+  background: rgba(57, 110, 247, 0.7);
+}
+
+/* Add these styles to your CSS file */
+
+.stock-select {
+margin-bottom: 20px;
+flex: 1;
+width: 100%;
+}
+
+.stock-select__control {
+cursor: pointer ;
+}
+.stock-select__dropdown-indicator {
+color: rgba(255, 255, 255, 0.5) ;
+}
+
+.stock-select__menu-list {
+max-height: 300px;
+}
+
+.stock-select__single-value {
+padding: 4px 0;
+max-width: none ;
+}
+/* Ensure dropdown options are visible */
+.stock-select__menu {
+margin-top: 4px ;
+z-index: 1000;
+}
+
+.stock-select__indicator-separator {
+background-color: rgba(255, 255, 255, 0.1) ;
+display: none;
+}
+
+.stock-select__option {
+transition: background-color 0.2s ease;
+}
+
+/* Custom scrollbar for the dropdown */
+.stock-select__menu-list::-webkit-scrollbar {
+width: 8px;
+}
+
+.stock-select__menu-list::-webkit-scrollbar-track {
+background: rgba(27, 32, 40, 1);
+border-radius: 4px;
+}
+
+.stock-select__menu-list::-webkit-scrollbar-thumb {
+background: rgba(57, 110, 247, 0.5);
+border-radius: 4px;
+}
+
+.stock-select__menu-list::-webkit-scrollbar-thumb:hover {
+background: rgba(57, 110, 247, 0.7);
+}
+
+/* Prevent text from being cut off */
+.stock-select__value-container {
+padding: 2px 8px;
+}
+
+/* Style the clear button */
+.stock-select__clear-indicator {
+cursor: pointer;
+color: rgba(255, 255, 255, 0.5);
+}
+
+.stock-select__clear-indicator:hover {
+color: rgba(255, 255, 255, 0.8);
+}
+
+/* Add these styles to your CSS file */
+
+.dashboard-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 24px;
+padding: 20px;
+}
+
+.dashboard-card {
+background-color: rgba(27, 32, 40, 1);
+border-radius: 15px;
+padding: 24px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+height: fit-content;
+}
+
+.stock-graph {
+grid-column: 1 / -1;
+}
+
+.graph-container {
+position: relative;
+height: 400px;
+background-color: rgba(49, 53, 63, 1);
+border-radius: 8px;
+padding: 20px;
+margin-bottom: 16px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.graph-container canvas {
+max-width: 100% !important;  /* Reduce width slightly from container */
+width: 100% !important;      /* Force width */
+}
+
+.stock-stats {
+display: flex;
+align-items: center;
+gap: 12px;
+white-space: nowrap;
+}
+
+.stock-price {
+font-size: 16px;
+font-weight: bold;
+color: black;
+margin: 8px 0;
+}
+
+.stock-price-value {
+font-size: 20px;
+font-weight: 600;
+color: #000;
+margin-top: auto;
+}
+
+.price-change {
+font-size: 16px;
+font-weight: 500;
+padding: 4px 8px;
+border-radius: 4px;
+}
+
+.stock-change {
+font-size: 20px;
+font-weight: 500;
+}
+
+.stock-change.positive {
+color: #4CAF50;
+}
+
+.stock-change.negative {
+color: #F44336;
+}
+
+.price-change.positive {
+color: #4CAF50;
+background-color: rgba(76, 175, 80, 0.1);
+}
+
+.price-change.negative {
+color: #F44336;
+background-color: rgba(244, 67, 54, 0.1);
+}
+
+.details-grid {
+display: grid;
+grid-template-columns: 1fr;
+gap: 16px;
+margin-top: 16px;
+}
+
+.detail-item {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 8px;
+}
+
+.detail-item .label {
+font-size: 16px;
+color: rgba(255, 255, 255, 0.6);
+margin-bottom: 4px;
+}
+
+.detail-item .value {
+font-size: 14px;
+font-weight: 550;
+color: white;
+}
+
+.optimization-list {
+margin-top: 16px;
+display: flex;
+flex-direction: column;
+gap: 12px;
+}
+
+.optimization-item {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 12px;
+background-color: rgba(49, 53, 63, 1);
+border-radius: 8px;
+font-size: 12px; 
+white-space: nowrap;
+animation: fadeIn 0.5s ease-in-out;
+}
+
+.optimization-item .symbol {
+font-weight: 600;
+color: white;
+font-size: 15px;
+}
+
+@keyframes fadeIn {
+from {
+    opacity: 0;
+    transform: translateY(10px);
+}
+to {
+    opacity: 1;
+    transform: translateY(0);
+}
+}
+
+.optimization-details {
+display: flex;
+align-items: center;
+gap: 8px;
+color: rgba(255, 255, 255, 0.8);
+padding-left: 20px;
+
+}
+
+.optimization-details span {
+font-size: 12px; 
+margin-right: 5px; 
+}
+
+.chart-loading {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100%;
+}
+
+.no-data {
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 24px 24px 24px 24px; 
+text-align: center;
+height: 100%;
+color: rgba(255, 255, 255, 0.7);
+font-size: 16px;
+}
+
+h2 {
+color: white;
+font-size: 20px;
+margin-bottom: 16px;
+}
+
+.mb-4 {
+margin-bottom: 16px;
+}
+
+.time-range-controls {
+display: flex;
+gap: 8px;
+padding: 8px;
+background-color: rgba(49, 53, 63, 1);
+border-radius: 8px;
+overflow-x: auto;
+}
+
+.time-selector {
+font-size: 12px;
+color: rgba(255, 255, 255, 0.6);
+padding: 4px 8px;
+border-radius: 4px;
+background-color: rgba(49, 53, 63, 1);
+}
+
+.timestamp {
+font-size: 12px;
+color: rgba(255, 255, 255, 0.6);
+}
+
+.time-range-btn {
+padding: 8px 16px;
+background: none;
+border: none;
+color: rgba(255, 255, 255, 0.7);
+cursor: pointer;
+border-radius: 6px;
+font-size: 14px;
+transition: all 0.2s ease;
+white-space: nowrap;
+}
+
+.time-range-btn:hover {
+background-color: rgba(57, 110, 247, 0.1);
+color: white;
+}
+
+.time-range-btn.active {
+background-color: rgba(57, 110, 247, 1);
+color: white;
+}
+
+/* Make sure horizontal scrollbar is hidden but functionality remains */
+.time-range-controls::-webkit-scrollbar {
+display: none;
+}
+
+.stock-header {
+display: flex;
+flex-direction: column;
+gap: 16px;
+margin-bottom: 24px;
+}
+
+.stock-select-container {
+display: flex;
+align-items: center;
+gap: 20px;
+margin-bottom: 16px;
+}
+
+.graph-footer {
+padding: 0 20px;
+}
+
+.dashboard-container {
+display: grid;
+grid-template-columns: 2fr 1fr;  /* 2/3 for left section, 1/3 for right section */
+gap: 24px;
+padding: 20px;
+}
+
+@media (max-width: 1024px) {
+.dashboard-grid {
+  grid-template-columns: 1fr;
+}
+
+.stock-graph {
+  grid-column: auto;
+}
+.dashboard-container {
+  grid-template-columns: 1fr;
+}
+
+.dashboard-container {
+  grid-template-columns: 1fr;
+}
+
+.main-section,
+.side-section {
+  grid-column: 1;
+}
+}
+
+.main-section {
+grid-column: 1;
+}
+.left-section {
+width: 100%;
+}
+
+.right-section {
+width: 100%;
+}
+
+.section-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 16px;
+}
+.side-section {
+grid-column: 2;
+display: flex;
+flex-direction: column;
+gap: 24px;
+}
+
+.section-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 16px;
+}
+
+.section-header h2 {
+margin: 0; /* Remove any default margins from the h2 */
+font-size: 20px;
+color: white;
+}
+
+.time-indicator {
+font-size: 12px;
+padding: 4px 8px;
+background-color: rgba(255, 0, 0, 1);
+border-radius: 4px;
+color: rgba(255, 255, 255);
+}
+
+/* Add these styles to your index.css */
+.portfolio-summary {
+margin-bottom: 24px;
+padding: 0 20px;
+background-color: rgba(27, 32, 40, 1);  /* Dark background color */
+border-radius: 16px;                    /* Rounded corners */
+padding: 20px;  
+position: relative; 
+}
+
+.portfolio-title {
+font-size: 1.25rem;
+font-weight: 600;
+color: white;
+margin-bottom: 16px;
+padding: 0 4px;
+}
+
+.portfolio-container {
+position: relative;
+}
+
+.portfolio-card {
+background-color: white;
+border-radius: 16px;
+padding: 16px;
+width: 240px;      /* Reduced width */
+height: 140px;     /* Fixed height */
+flex: 0 0 240px;;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+opacity: 1;
+visibility: visible;
+}
+
+.portfolio-cards {
+display: flex;
+gap: 16px;
+position: relative;
+overflow-x: hidden; /* Add this to prevent horizontal scrolling */
+padding: 4px 0;      /* Add this to prevent shadow cutoff */
+width: 100%;
+}
+
+.portfolio-value {
+margin: 8px 0;
+font-size: 20px;
+font-weight: 600;
+}
+
+.portfolio-label {
+font-size: 12px;
+color: #666;
+margin-bottom: 4px;
+}
+
+/* Add this style */
+.portfolio-cards-wrapper {
+display: flex;
+gap: 16px;
+transition: transform 0.5s ease; /* Smooth transition for sliding */
+width: fit-content;
+}
+
+.portfolio-cards-container {
+display: flex;
+gap: 16px;
+overflow-x: hidden;
+position: relative;
+padding: 4px;
+z-index: 5;
+width: 100%;
+}
+
+.nav-button {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+background-color: rgba(27, 32, 40, 0.6);
+color: white;
+border: none;
+border-radius: 50%;
+width: 40px;
+height: 40px;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+z-index: 10;
+transition: background-color 0.5s;
+}
+
+.nav-button:hover {
+background-color: rgba(27, 32, 40, 8);
+}
+
+.nav-button-left {
+left: -20px;
+}
+
+.nav-button-right {
+right: -20px;
+}
+
+.nav-icon {
+width: 24px;
+height: 24px;
+}
+
+.card-header {
+display: flex;
+justify-content: space-between;
+align-items: flex-start;
+margin-bottom: 4px;
+}
+
+.scroll-button {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+right: 0;
+background-color: rgba(27, 32, 40, 0.8);
+border-radius: 50%;
+padding: 8px;
+cursor: pointer;
+transition: background-color 0.2s;
+}
+
+.scroll-button:hover {
+background-color: rgba(27, 32, 40, 1);
+}
+
+.mini-chart {
+height: 60px;
+margin: 8px 0;
+}
+
+/* Portfolio Summary Styles */
+.mb-6 {
+margin-bottom: 24px;
+}
+
+.text-xl {
+font-size: 1.25rem;
+line-height: 1.75rem;
+}
+
+.font-semibold {
+font-weight: 600;
+}
+
+.text-white {
+color: white;
+}
+
+.mb-4 {
+margin-bottom: 16px;
+}
+
+.relative {
+position: relative;
+}
+
+.flex {
+display: flex;
+}
+
+.gap-4 {
+gap: 16px;
+}
+
+.bg-white {
+background-color: white;
+}
+
+.rounded-xl {
+border-radius: 12px;
+}
+
+.p-4 {
+padding: 16px;
+}
+
+.w-\[280px\] {
+width: 280px;
+}
+
+.flex-shrink-0 {
+flex-shrink: 0;
+}
+
+.items-center {
+align-items: center;
+}
+
+.gap-2 {
+gap: 8px;
+}
+
+.mb-3 {
+margin-bottom: 12px;
+}
+
+.w-8 {
+width: 32px;
+}
+
+.h-8 {
+height: 32px;
+}
+
+.rounded-full {
+border-radius: 9999px;
+}
+
+.bg-gray-100 {
+background-color: #f3f4f6;
+}
+
+.text-gray-900 {
+color: #111827;
+}
+
+.font-medium {
+font-weight: 500;
+}
+
+.text-xs {
+font-size: 0.75rem;
+line-height: 1rem;
+}
+
+.text-gray-500 {
+color: #6b7280;
+}
+
+.h-16 {
+height: 64px;
+}
+
+.mb-2 {
+margin-bottom: 8px;
+}
+
+.absolute {
+position: absolute;
+}
+
+.right-0 {
+right: 0;
+}
+
+.top-1\/2 {
+top: 50%;
+}
+
+.-translate-y-1\/2 {
+transform: translateY(-50%);
+}
+
+.bg-gray-800 {
+background-color: #1f2937;
+}
+
+.hover\:bg-gray-700:hover {
+background-color: #374151;
+}
+
+.p-2 {
+padding: 8px;
+}
+
+.shadow-lg {
+box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.w-6 {
+width: 24px;
+}
+
+.h-6 {
+height: 24px;
+}

@@ -1,0 +1,12 @@
+flask
+flask-cors
+yfinance
+pandas
+scikit-learn
+numpy
+scipy
+gunicorn
+matplotlib
+lxml
+html5lib
+beautifulsoup4
